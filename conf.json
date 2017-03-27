@@ -1,0 +1,49 @@
+{
+    "plugins" :
+    [
+        {
+            "name" : "http",
+            "path" : "plugins/http.py"
+        },
+        {
+            "name" : "ssl",
+            "path" : "plugins/ssl.py"
+        },
+        {
+            "name" : "dns",
+            "path" : "plugins/dns.py"
+        },
+        {
+            "name" : "whois",
+            "path" : "plugins/whois.py"
+        },
+        {
+            "name" : "investigate",
+            "path" : "plugins/investigate.py",
+            "api_key" : "--- YOUR API KEY HERE ---"
+        },
+        {
+            "name" : "virustotal",
+            "path" : "plugins/virustotal.py",
+            "api_key" : "--- YOUR API KEY HERE ---"
+        },
+        {
+            "name" : "shodan",
+            "path" : "plugins/shodan.py",
+            "api_key" : "--- YOUR API KEY HERE ---"
+        },
+        {
+            "name" : "geoip2",
+            "path" : "plugins/geoip2/plugin.py"
+        },
+        {
+            "name" : "selenium",
+            "path" : "plugins/selenium.py"
+        },
+        {
+            "name" : "blacklist",
+            "path" : "plugins/blacklist.py",
+            "filename" : "blacklist.txt"
+        }
+    ]
+}

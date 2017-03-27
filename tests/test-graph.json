@@ -1,0 +1,15 @@
+{
+    "nodes": [
+        { "id": "A", "type": "domain", "test": 42 },
+        { "id": "B", "type": "domain", "test": 23 },
+        { "id": "C", "type": "domain", "test": 13 },
+        { "id": "D", "type": "domain", "test": 17 },
+        { "id": "E", "type": "domain", "test": 51 }
+    ],
+    "edges": [
+        { "src": "A", "dst": "B", "type": "connection" },
+        { "src": "B", "dst": "C", "type": "connection" },
+        { "src": "C", "dst": "D", "type": "connection" },
+        { "src": "D", "dst": "E", "type": "connection" }
+    ]
+}

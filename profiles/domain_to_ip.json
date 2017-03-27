@@ -1,0 +1,28 @@
+{
+    "meta" :
+    {
+        "author" : "Thibault Reuille",
+        "name" : "Domain-IP Profile",
+        "description" : "Extract the hosting IPs from domains"
+    },
+
+    "parameters" : 
+    {
+        "depth" : 1,
+        "explorers" : [ "investigate" ],
+        "operators" : []
+    },
+
+    "investigate" :
+    {
+        "domain" :
+        {   
+            "properties" : {},
+            "neighbors" :
+            {
+                "rr:a" : { "select" : "all" }
+            }
+        }
+    }
+}
+

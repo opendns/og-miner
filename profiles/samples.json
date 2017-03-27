@@ -1,0 +1,45 @@
+{
+    "meta" :
+    {
+        "author" : "Thibault Reuille",
+        "name" : "Sample Mining Profile",
+        "description" : "Standard mining profile to get all sample information."
+    },
+
+    "parameters" : 
+    {
+        "depth" : 0,
+        "explorers" : [ "investigate" ],
+        "operators" : [ "blacklist" ]
+    },
+
+    "investigate" :
+    {
+        "domain" :
+        {   
+            "properties" : {},
+            "neighbors" :
+            {
+                "rr:a" :             { "select" : "none" },
+                "rr:cname" :         { "select" : "none" },
+                "rr:ns" :            { "select" : "none" },
+                "rr:mx" :            { "select" : "none" },
+                "whois:ns" :         { "select" : "none" },
+                "whois:registrant" : { "select" : "none" },
+                "co-occurrence" :    { "select" : "none" },
+                "related" :          { "select" : "none" },
+                "samples" :          { "select" : "all" }
+            }
+        },
+        "hash" :
+        {
+            "properties" : {},
+            "neighbors" :
+            {
+                "connections" : { "select" : "all" },
+                "samples" :     { "select" : "all" },
+                "hash_group" :  { "select" : "none" }
+            }
+        }
+    }
+}

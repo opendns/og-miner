@@ -1,0 +1,175 @@
+{
+    "meta" :
+    {
+        "author" : "Thibault Reuille",
+        "name" : "Default Miner Profile",
+        "description" : "Standard mining profile to get a quick overview of everything."
+    },
+
+    "parameters" : 
+    {
+        "depth" : 0,
+        "pipeline" : [ "blacklist", "investigate", "virustotal", "shodan", "geoip2" ]
+    }, 
+
+    "http" : {},
+
+    "selenium" : {},
+
+    "ssl" : {},
+    
+    "dns" : {
+        "domain" :
+        {
+            "properties" : {},
+            "neighbors" : {
+                "a-record" : { "select" : "all" }
+            }
+        }
+    },
+
+    "whois" : {},
+    
+    "geoip2" : {},
+
+    "investigate" :
+    {
+        "domain" :
+        {   
+            "properties" :
+            {
+                "categorization" : true,
+                "security" : true,
+                "tags" : true,
+                "domain_whois" : true,
+                "rr:a" : true,
+                "rr:cname" : true,
+                "rr:ns" : true,
+                "rr:mx" : true
+            },
+            "neighbors" :
+            {
+                "rr:a" :             { "select" : "first", "size" : 5 },
+                "rr:cname" :         { "select" : "first", "size" : 5 },
+                "rr:ns" :            { "select" : "first", "size" : 5 },
+                "rr:mx" :            { "select" : "first", "size" : 5 },
+                "whois:ns" :         { "select" : "first", "size" : 5 },
+                "whois:registrant" : { "select" : "first", "size" : 5 },
+                "co-occurrence" :    { "select" : "first", "size" : 5 },
+                "related" :          { "select" : "first", "size" : 5 },
+                "samples" :          { "select" : "first", "size" : 5 }
+            }
+        },
+        "url" :
+        {
+            "neighbors" :
+            {
+                "samples" : { "select" : "first", "size" : 5 }
+            }
+        },
+        "ip" :
+        {
+            "properties" :
+            {
+                "rr:a" : true,
+                "rr:ns" : true,
+                "ip -> as" : true
+            },
+            "neighbors" :
+            {
+                "rr:a" :        { "select" : "first", "size" : 5 },
+                "rr:ns" :       { "select" : "first", "size" : 5 },
+                "ip -> asn" :    { "select" : "first", "size" : 5 },
+                "samples" :     { "select" : "first", "size" : 5 }
+            }
+        },
+        "asn" :
+        {
+            "properties" :
+            {
+                "asn -> prefix" : true
+            },
+            "neighbors" :
+            {
+                "asn -> prefix" : { "select" : "first", "size" : 5 }
+            }
+        },
+        "email" :
+        {
+            "neighbors" :
+            {
+                "whois" : { "select" : "first", "size" : 5 }
+            }
+        },
+        "regex" :
+        {
+            "neighbors" :
+            {
+                "regex:match" : { "select" : "first", "size" : 5 }
+            }
+        },
+        "hash" :
+        {
+            "properties" :
+            {
+                "threatgrid" : true
+            },
+            "neighbors" :
+            {
+                "connections" : { "select" : "first", "size" : 5 },
+                "samples" :     { "select" : "first", "size" : 5 },
+                "hash:group" :  { "select" : "first", "size" : 5 }
+            }
+        }
+    },
+
+    "virustotal" :
+    {
+        "domain" :
+        {
+            "properties" : {},
+            "neighbors" :
+            {
+                "detected_urls" :                  { "select" : "first", "size" : 5 },
+                "detected_communicating_samples" : { "select" : "first", "size" : 5 },
+                "detected_downloaded_samples" :    { "select" : "first", "size" : 5 }
+            }
+        },
+        "ip" : 
+        {
+            "properties" : {},
+            "neighbors" :
+            {
+                "detected_urls" :                  { "select" : "first", "size" : 5 },
+                "detected_communicating_samples" : { "select" : "first", "size" : 5 },
+                "detected_downloaded_samples" :    { "select" : "first", "size" : 5 }
+            }
+        },
+        "url" : 
+        {
+            "properties" : {},
+            "neighbors" : {}
+        },
+        "hash" :
+        {
+            "properties" : {},
+            "neighbors" :
+            {
+                "hash_group" : { "select" : "none" }
+            }
+        }
+    },
+
+    "shodan" :
+    {
+        "ip" :
+        {
+            "properties" : {},
+            "neighbors" :
+            {
+                "ip -> port" : { "select" : "first", "size" : 5 },
+                "ip -> as" :   { "select" : "first", "size" : 5 } 
+            }
+        }
+    }
+}

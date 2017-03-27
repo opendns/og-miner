@@ -1,0 +1,15 @@
+{
+    "meta" :
+    {
+        "author" : "Thibault Reuille",
+        "name" : "Miner Test Profile"
+    },
+
+    "parameters" : 
+    {
+        "depth" : "infinite",
+        "pipeline" : [ "static" ]
+    }, 
+
+    "static" : {}
+}

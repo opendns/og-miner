@@ -1,0 +1,10 @@
+{
+    "plugins" :
+    [
+        {
+            "name" : "static",
+            "path" : "plugins/static.py",
+            "filename" : "tests/test-graph.json"
+        }
+    ]
+}

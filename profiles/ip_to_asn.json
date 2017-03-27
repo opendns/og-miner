@@ -1,0 +1,40 @@
+{
+    "meta" :
+    {
+        "author" : "Thibault Reuille",
+        "name" : "IP->ASN Profile",
+        "description" : "Extract the ASNs from IPs"
+    },
+
+    "parameters" : 
+    {
+        "depth" : 1,
+        "pipeline" : [ "investigate", "shodan" ]
+    },
+
+    "investigate" :
+    {
+        "ip" :
+        {
+            "properties" :
+            {
+                "ip -> asn" : true
+            },
+            "neighbors" :
+            {
+                "ip -> asn" :   { "select" : "all" } 
+            }
+        }
+    },
+    "shodan" :
+    {
+        "ip" :
+        {
+            "properties" : {},
+            "neighbors" :
+            {
+                "ip -> asn" :   { "select" : "all" }
+            }
+        }
+    }
+}
