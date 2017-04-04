@@ -5,7 +5,7 @@ Data Crawling on Steroids
 ## Installation
 
 ```
-git clone https://github.office.opendns.com/thibault/og-miner.git
+git clone git@github.com:opendns/og-miner.git
 cd og-miner
 pip install -r requirements.txt
 ```
