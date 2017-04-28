@@ -150,7 +150,7 @@ class Plugin(object):
 
         if profile.get_vertex_neighbor_rule('domain', 'samples') is not None:
             try:
-                for item in self.api.samples(name)['samples']:
+                for item in self.api.samples(name, sortby="first-seen")['samples']:
                     neighbor_id = item['sha256']
                     for key in [ 'behaviors', 'md5', 'sha1', 'sha256', 'threatScore', 'magicType', 'avresults', 'visible', 'size' ]:
                         if key in item:
@@ -169,7 +169,7 @@ class Plugin(object):
 
         if profile.get_vertex_neighbor_rule('url', 'samples'):
             try:
-                for item in self.api.samples(urllib.quote_plus(url))['samples']:
+                for item in self.api.samples(urllib.quote_plus(url), sortby="first-seen")['samples']:
                     neighbor_id = item['sha256']
                     for key in [ 'behaviors', 'md5', 'sha1', 'sha256', 'threatScore', 'magicType', 'avresults', 'visible', 'size' ]:
                         if key in item:
@@ -235,7 +235,7 @@ class Plugin(object):
 
         if profile.get_vertex_neighbor_rule('ip', "samples"):
             try:
-                for item in self.api.samples(ip)['samples']:
+                for item in self.api.samples(ip, sortby="first-seen")['samples']:
                     neighbor_id = item['sha256']
                     for key in [ 'behaviors', 'md5', 'sha1', 'sha256', 'threatScore', 'magicType', 'avresults', 'visible', 'size' ]:
                         if key in item:
@@ -269,7 +269,7 @@ class Plugin(object):
         properties = dict()
         neighbors = list()
 
-        if profile.get_vertex_neighbor_rule('email', "samples"):
+        if profile.get_vertex_neighbor_rule('email', "whois"):
             try:
                 data = self.api.email_whois(email)
                 for item in data[email]['domains']:
@@ -280,7 +280,7 @@ class Plugin(object):
                         ))
             except: pass
       
-        return { "properties" : properties, "neighbors" : neighbors } 
+        return { "properties" : properties, "neighbors" : neighbors }
 
     def explore_regex(self, vertex, profile):
         regex = vertex['id']
